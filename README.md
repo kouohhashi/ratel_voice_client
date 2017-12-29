@@ -3,9 +3,17 @@ This is a proof of concept for using blockchain incentive to obtain AI data.
 
 You can test entire flow from obtaining data for AI training in exchange for tokens on a ethereum private network to train model to serve service.  
 
-This example is specific for voice recognition system.
+This example is for voice recognition system.
 >  you can try it without blockchain parts if you want   
 For more information about the idea, please check [website](https://ratelnetwork.com).  
+
+## Features
+1. Import texts from epub for data contributors to read out
+2. Data contributors can record voice. the voice and meta data is saved on mongodb.
+3. Issue token on private ethereum network in exchange for data
+4. Train AI model on jupyter notebook
+5. Test the model at webstie
+
 
 ## Server side
 For server side scripts, please check [here](https://github.com/kouohhashi/ratel_voice_server_example)  
