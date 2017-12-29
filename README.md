@@ -10,6 +10,9 @@ For more information about the idea, please check [website](https://ratelnetwork
 ## Server side
 For server side scripts, please check [here](https://github.com/kouohhashi/ratel_voice_server_example)  
 
+## Demo
+Here's a live [demo](https://ratel_voice.grabit.co/)  This is only for testing purpose.
+
 ## How to setup this system
 
 ### download the repository  
