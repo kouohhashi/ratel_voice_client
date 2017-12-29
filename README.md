@@ -63,5 +63,8 @@ http://localhost:3000/admin/dashboard
 - More document
 - UIs for other AI projects
 
+### Tech stack
+- React
+
 ## License  
 MIT. You can do whatever you want.  
