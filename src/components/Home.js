@@ -14,6 +14,8 @@ import * as MyAPI from '../utils/MyAPI'
 import Alert from 'react-s-alert';
 // import FaRefresh from 'react-icons/lib/fa/refresh';
 import HeaderBeforeLogin from './HeaderBeforeLogin'
+import { detect } from 'detect-browser';
+const browser = detect();
 
 // home
 class Home extends Component {
@@ -26,9 +28,33 @@ class Home extends Component {
     recongized_text: null,
     reading_sentence: {},
     mic_initialized: false,
+    browser_name: null,
   }
 
   componentDidMount() {
+
+    // check brower
+    if (browser && browser.name === 'chrome') {
+      // ok
+    } else if (browser && browser.name === 'firefox') {
+      // ok
+    } else {
+      // browser_name = browser.name;
+      // console.log("browser.name: ", browser.name)
+      this.setState({
+        browser_name: browser.name,
+      })
+    }
+
+    // this.setState({
+    //   browser_name: browser.name,
+    // })
+
+    // Alert.info(browser.name, {
+    //   position: 'top-right',
+    //   effect: 'slide',
+    //   timeout: 5000
+    // });
 
     // retrieve sample sentence
     this._changeSampleText()
@@ -97,7 +123,7 @@ class Home extends Component {
 
     const { blobURL, blobData } = this.state
     if (blobURL === null){
-      console.log("blobURL not found ...")
+      // console.log("blobURL not found ...")
       return;
     }
 
@@ -150,10 +176,10 @@ class Home extends Component {
     audio.src = blobURL
 
     audio.onended = (aaa) => {
-      console.log("audio end successfully")
+      // console.log("audio end successfully")
     }
     audio.onerror = (e) => {
-      console.log("audio end with error: ", e)
+      // console.log("audio end with error: ", e)
     }
 
     audio.play()
@@ -203,6 +229,7 @@ class Home extends Component {
       uploading,
       recongized_text,
       reading_sentence,
+      browser_name,
      } = this.state
 
     return(
@@ -210,6 +237,21 @@ class Home extends Component {
 
         {/* header */}
         <HeaderBeforeLogin />
+
+        {browser_name && (
+          <Row style={{marginTop: 60}}>
+            <Col md="3" xs="12" />
+            <Col md="6" xs="12" style={{
+                textAlign: 'left',
+                fontSize: 28,
+                color: 'red',
+              }}>
+              {browser_name} is not supported! <br/>
+              Please use Chrome or Firefox.
+            </Col>
+            <Col md="3" xs="12" />
+          </Row>
+        )}
 
         <Row style={{marginTop: 60}}>
           <Col md="3" xs="12" />

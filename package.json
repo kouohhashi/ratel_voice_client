@@ -5,6 +5,7 @@
   "dependencies": {
     "audiobuffer-to-wav": "^1.0.0",
     "bootstrap": "^4.0.0-beta",
+    "detect-browser": "^2.0.0",
     "eth-lightwallet": "^3.0.0",
     "ethereumjs-util": "^5.1.2",
     "hooked-web3-provider": "^1.0.0",

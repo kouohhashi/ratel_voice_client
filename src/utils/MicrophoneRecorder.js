@@ -47,13 +47,13 @@ export class MicrophoneRecorder {
       }
     } else {
       if (navigator.mediaDevices) {
-        console.log('getUserMedia supported.');
+        // console.log('getUserMedia supported.');
 
         navigator.mediaDevices.getUserMedia(constraints).then((str) => {
           stream = str;
 
-          console.log("mediaOptions.mimeType: ", mediaOptions.mimeType)
-          console.log("MediaRecorder: ", MediaRecorder)
+          // console.log("mediaOptions.mimeType: ", mediaOptions.mimeType)
+          // console.log("MediaRecorder: ", MediaRecorder)
 
           if(MediaRecorder.isTypeSupported(mediaOptions.mimeType)) {
             mediaRecorder = new MediaRecorder(str, mediaOptions);
@@ -61,14 +61,14 @@ export class MicrophoneRecorder {
             mediaRecorder = new MediaRecorder(str);
           }
           // mediaRecorder = new MediaRecorder(str);
-          console.log(mediaRecorder.mimeType)
+          // console.log(mediaRecorder.mimeType)
 
           if(onStartCallback) { onStartCallback() };
 
           mediaRecorder.onstop = this.onStop;
           mediaRecorder.ondataavailable = (event) => {
 
-            console.log("event.data:", event.data)
+            // console.log("event.data:", event.data)
 
             chunks.push(event.data);
           }
@@ -98,7 +98,7 @@ export class MicrophoneRecorder {
 
   onStop(evt) {
 
-    console.log("chunks:", chunks)
+    // console.log("chunks:", chunks)
 
     const blob = new Blob(chunks, { 'type' : mediaOptions.mimeType });
     chunks = [];
